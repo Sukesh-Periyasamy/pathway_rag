@@ -1,0 +1,110 @@
+{
+  "patient_id": "P005678",
+  "name": "Robert Chen",
+  "age": 72,
+  "date_of_birth": "1953-08-22",
+  "gender": "Male",
+  "diagnoses": [
+    "Coronary Artery Disease",
+    "COPD Gold Stage II",
+    "Dyslipidemia", 
+    "Osteoarthritis"
+  ],
+  "symptoms": [
+    "Exertional dyspnea",
+    "Morning cough with sputum",
+    "Joint stiffness",
+    "Occasional chest tightness"
+  ],
+  "medications": [
+    {
+      "name": "Atorvastatin",
+      "dosage": "40mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Metoprolol",
+      "dosage": "50mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Tiotropium",
+      "dosage": "inhaler daily",
+      "status": "active"
+    },
+    {
+      "name": "Albuterol",
+      "dosage": "inhaler as needed",
+      "status": "active"
+    },
+    {
+      "name": "Aspirin",
+      "dosage": "81mg daily",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Atorvastatin",
+      "dosage": "40mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Metoprolol", 
+      "dosage": "50mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Tiotropium",
+      "dosage": "inhaler daily",
+      "status": "active"
+    },
+    {
+      "name": "Albuterol",
+      "dosage": "inhaler as needed",
+      "status": "active"
+    },
+    {
+      "name": "Aspirin",
+      "dosage": "81mg daily",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "Codeine",
+      "reaction": "nausea and dizziness"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "138/85",
+    "heart_rate": 68,
+    "temperature": 98.1,
+    "respiratory_rate": 22,
+    "oxygen_saturation": 94,
+    "height": 175.0,
+    "weight": 85.0,
+    "bmi": 27.8,
+    "pain_scale": 1
+  },
+  "lab_results": {
+    "fasting_glucose": 95,
+    "total_cholesterol": 180,
+    "ldl_cholesterol": 95,
+    "hdl_cholesterol": 42,
+    "triglycerides": 160,
+    "creatinine": 1.1,
+    "egfr": 65,
+    "hemoglobin": 13.8,
+    "alt": 35,
+    "bun": 18
+  },
+  "chief_complaint": "Routine follow-up for CAD and COPD, reports increased shortness of breath",
+  "family_history": "Father: MI at age 65\nMother: Emphysema",
+  "past_history": "PCI with stent 2020, Former smoker (quit 5 years ago)",
+  "notes": "Patient has been doing well post-PCI. Recent increase in dyspnea may indicate COPD progression. Considering pulmonary function tests.",
+  "created_at": "2025-10-18T10:15:00Z",
+  "last_modified": "2025-10-18T10:15:00Z",
+  "saved_at": "2025-10-18T10:15:00Z"
+}

@@ -1,0 +1,112 @@
+{
+  "patient_id": "P007890",
+  "name": "James Rodriguez",
+  "age": 85,
+  "date_of_birth": "1940-06-10",
+  "gender": "Male",
+  "diagnoses": [
+    "Congestive Heart Failure",
+    "Type 2 Diabetes",
+    "Chronic Kidney Disease Stage 4",
+    "Mild Cognitive Impairment"
+  ],
+  "symptoms": [
+    "Lower extremity edema",
+    "Shortness of breath on exertion",
+    "Occasional confusion",
+    "Decreased appetite",
+    "Nocturia"
+  ],
+  "medications": [
+    {
+      "name": "Lisinopril",
+      "dosage": "5mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Metoprolol",
+      "dosage": "25mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Furosemide",
+      "dosage": "40mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Insulin glargine",
+      "dosage": "20 units daily",
+      "status": "active"
+    },
+    {
+      "name": "Insulin lispro",
+      "dosage": "with meals",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Lisinopril",
+      "dosage": "5mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Metoprolol",
+      "dosage": "25mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Furosemide",
+      "dosage": "40mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Insulin glargine",
+      "dosage": "20 units daily",
+      "status": "active"
+    },
+    {
+      "name": "Insulin lispro",
+      "dosage": "with meals",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "ACE inhibitor",
+      "reaction": "dry cough with higher doses"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "125/78",
+    "heart_rate": 65,
+    "temperature": 98.0,
+    "respiratory_rate": 20,
+    "oxygen_saturation": 95,
+    "height": 170.0,
+    "weight": 78.0,
+    "bmi": 27.0,
+    "pain_scale": 3
+  },
+  "lab_results": {
+    "hba1c": 8.1,
+    "fasting_glucose": 165,
+    "total_cholesterol": 155,
+    "ldl_cholesterol": 85,
+    "hdl_cholesterol": 38,
+    "triglycerides": 140,
+    "creatinine": 2.1,
+    "egfr": 28,
+    "hemoglobin": 10.8,
+    "alt": 32,
+    "bun": 35
+  },
+  "chief_complaint": "Worsening heart failure symptoms, medication adjustment needed",
+  "family_history": "Extensive family history of diabetes and heart disease",
+  "past_history": "MI 2018, Multiple hospitalizations for CHF exacerbations",
+  "notes": "Patient showing signs of CHF progression. Consider adjusting diuretic therapy. Blood glucose control suboptimal - may need insulin adjustment. CKD Stage 4 requires nephrology consultation.",
+  "created_at": "2025-10-18T10:45:00Z",
+  "last_modified": "2025-10-18T10:45:00Z",
+  "saved_at": "2025-10-18T10:45:00Z"
+}

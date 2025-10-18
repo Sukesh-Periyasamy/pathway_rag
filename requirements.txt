@@ -1,0 +1,49 @@
+# MedCare AI CDSS - Requirements
+
+# Core Dependencies
+streamlit>=1.28.0
+openai>=1.0.0
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.0
+reportlab>=4.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+python-dotenv>=1.0.0
+
+# Pathway RAG and PubMed Integration
+pathway>=0.8.0
+requests>=2.31.0
+xml.etree.ElementTree  # Built-in Python module
+
+# Data Processing
+ijson>=3.2.0
+xmltodict>=0.13.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# UI and Visualization  
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+pillow>=10.0.0
+
+# Utilities
+requests>=2.31.0
+tqdm>=4.65.0
+pathlib>=1.0.1
+typing-extensions>=4.7.0
+
+# Testing (for development)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+
+# Code Quality (for development)
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Documentation (for development)
+mkdocs>=1.5.0
+mkdocs-material>=9.1.0

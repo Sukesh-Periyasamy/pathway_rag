@@ -1,0 +1,102 @@
+{
+  "patient_id": "P013456", 
+  "name": "Michael Kim",
+  "age": 35,
+  "date_of_birth": "1990-01-20",
+  "gender": "Male",
+  "diagnoses": [
+    "Essential Hypertension",
+    "Obesity Class II",
+    "Prediabetes",
+    "Sleep Apnea"
+  ],
+  "symptoms": [
+    "Headaches",
+    "Fatigue",
+    "Snoring", 
+    "Daytime sleepiness",
+    "Poor sleep quality"
+  ],
+  "medications": [
+    {
+      "name": "Lisinopril",
+      "dosage": "20mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Amlodipine",
+      "dosage": "10mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Metformin",
+      "dosage": "1000mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "CPAP therapy",
+      "dosage": "nightly",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Lisinopril",
+      "dosage": "20mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Amlodipine",
+      "dosage": "10mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Metformin",
+      "dosage": "1000mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "CPAP therapy",
+      "dosage": "nightly",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "Hydrochlorothiazide",
+      "reaction": "electrolyte imbalance"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "158/95",
+    "heart_rate": 78,
+    "temperature": 98.4,
+    "respiratory_rate": 18,
+    "oxygen_saturation": 96,
+    "height": 178.0,
+    "weight": 115.0,
+    "bmi": 36.3,
+    "pain_scale": 1
+  },
+  "lab_results": {
+    "hba1c": 6.2,
+    "fasting_glucose": 118,
+    "total_cholesterol": 245,
+    "ldl_cholesterol": 165,
+    "hdl_cholesterol": 38,
+    "triglycerides": 210,
+    "creatinine": 1.1,
+    "egfr": 85,
+    "hemoglobin": 14.2,
+    "alt": 45,
+    "bun": 16
+  },
+  "chief_complaint": "Poorly controlled blood pressure despite medications, weight management",
+  "family_history": "Father: HTN, Type 2 DM\nMother: Obesity, Sleep apnea",
+  "past_history": "No significant past medical history, Recent sleep study confirming severe OSA",
+  "notes": "Young adult with multiple cardiovascular risk factors. Blood pressure remains elevated despite dual therapy. CPAP compliance important for BP control. Weight loss crucial for overall management.",
+  "created_at": "2025-10-18T11:45:00Z",
+  "last_modified": "2025-10-18T11:45:00Z", 
+  "saved_at": "2025-10-18T11:45:00Z"
+}

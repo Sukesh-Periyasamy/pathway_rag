@@ -1,0 +1,139 @@
+{
+  "sample_patients": [
+    {
+      "patient_id": "P014789",
+      "name": "Grace Williams",
+      "age": 78,
+      "date_of_birth": "1947-07-25",
+      "gender": "Female",
+      "diagnoses": [
+        "Alzheimer's Disease (moderate stage)",
+        "Atrial Fibrillation",
+        "Hypertension",
+        "Osteoarthritis",
+        "Urinary Incontinence"
+      ],
+      "symptoms": [
+        "Memory loss",
+        "Confusion",
+        "Agitation",
+        "Joint pain",
+        "Frequent falls"
+      ],
+      "current_medications": [
+        "Donepezil 10mg daily",
+        "Memantine 20mg daily", 
+        "Warfarin 3mg daily",
+        "Metoprolol 25mg twice daily",
+        "Acetaminophen 650mg three times daily",
+        "Oxybutynin 5mg twice daily"
+      ],
+      "allergies": [
+        "NSAIDs - GI bleeding",
+        "Haloperidol - extrapyramidal symptoms"
+      ],
+      "chief_complaint": "Increased confusion and agitation, medication review needed",
+      "notes": "Complex elderly patient requiring careful medication management and fall prevention strategies."
+    },
+    {
+      "patient_id": "P015123",
+      "name": "Alex Johnson",
+      "age": 42,
+      "date_of_birth": "1983-03-10",
+      "gender": "Male",
+      "diagnoses": [
+        "Chronic Hepatitis B",
+        "Hypertension",
+        "Gastroesophageal Reflux Disease"
+      ],
+      "symptoms": [
+        "Occasional fatigue",
+        "Heartburn",
+        "Upper abdominal discomfort"
+      ],
+      "current_medications": [
+        "Tenofovir 300mg daily",
+        "Lisinopril 15mg daily",
+        "Omeprazole 20mg daily"
+      ],
+      "allergies": [
+        "No known drug allergies"
+      ],
+      "chief_complaint": "Routine follow-up for chronic hepatitis B management",
+      "notes": "Stable hepatitis B with good viral suppression. Monitor liver function regularly."
+    }
+  ],
+  "clinical_scenarios": [
+    {
+      "scenario_name": "Drug Interaction Alert",
+      "description": "Patient on warfarin prescribed new antibiotic with potential interaction",
+      "sample_medications": [
+        "Warfarin 5mg daily",
+        "Ciprofloxacin 500mg twice daily (newly prescribed)"
+      ],
+      "expected_alerts": [
+        "Major drug interaction: Warfarin + Ciprofloxacin may increase bleeding risk",
+        "Recommendation: Monitor INR closely and consider dose adjustment"
+      ]
+    },
+    {
+      "scenario_name": "Polypharmacy Review",
+      "description": "Elderly patient with multiple medications requiring review",
+      "sample_medications": [
+        "Metformin 1000mg twice daily",
+        "Glipizide 10mg daily",
+        "Lisinopril 20mg daily",
+        "Atorvastatin 40mg daily",
+        "Aspirin 81mg daily",
+        "Omeprazole 20mg daily",
+        "Gabapentin 300mg three times daily",
+        "Tramadol 50mg as needed"
+      ],
+      "expected_alerts": [
+        "Polypharmacy alert: 8+ medications may increase adverse event risk",
+        "Consider medication reconciliation and deprescribing review"
+      ]
+    },
+    {
+      "scenario_name": "Renal Dosing Alert",
+      "description": "Patient with kidney disease requiring dose adjustment",
+      "creatinine": 2.5,
+      "egfr": 25,
+      "sample_medications": [
+        "Metformin 1000mg twice daily",
+        "Gabapentin 300mg three times daily"
+      ],
+      "expected_alerts": [
+        "Renal dosing alert: Metformin contraindicated with eGFR < 30",
+        "Renal dosing alert: Gabapentin dose should be reduced with eGFR < 30"
+      ]
+    }
+  ],
+  "demo_instructions": [
+    {
+      "step": 1,
+      "action": "Load sample patient data",
+      "description": "Use the 'Load Sample Patient Data' feature in the application to quickly populate patient information"
+    },
+    {
+      "step": 2,
+      "action": "Run clinical analysis",
+      "description": "Click 'Analyze Patient Data' to trigger the AI-powered clinical decision support analysis"
+    },
+    {
+      "step": 3,
+      "action": "Review drug interactions",
+      "description": "Examine the Drug Safety Analysis tab for potential medication interactions and alerts"
+    },
+    {
+      "step": 4,
+      "action": "Generate clinical summary",
+      "description": "View the AI-generated clinical summary in the 'Doctor Summary' tab"
+    },
+    {
+      "step": 5,
+      "action": "Download patient education",
+      "description": "Generate and download patient-friendly educational materials from the 'Patient Education' tab"
+    }
+  ]
+}

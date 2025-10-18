@@ -1,0 +1,90 @@
+{
+  "patient_id": "P009123",
+  "name": "Sarah Williams",
+  "age": 28,
+  "date_of_birth": "1997-02-14",
+  "gender": "Female",
+  "diagnoses": [
+    "Generalized Anxiety Disorder",
+    "Hypothyroidism",
+    "Iron Deficiency Anemia"
+  ],
+  "symptoms": [
+    "Persistent worry",
+    "Palpitations",
+    "Fatigue",
+    "Cold intolerance",
+    "Difficulty concentrating"
+  ],
+  "medications": [
+    {
+      "name": "Sertraline",
+      "dosage": "50mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Levothyroxine",
+      "dosage": "75mcg daily",
+      "status": "active"
+    },
+    {
+      "name": "Ferrous sulfate",
+      "dosage": "325mg daily",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Sertraline",
+      "dosage": "50mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Levothyroxine",
+      "dosage": "75mcg daily",
+      "status": "active"
+    },
+    {
+      "name": "Ferrous sulfate",
+      "dosage": "325mg daily",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "No known drug allergies",
+      "reaction": "Unknown"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "110/70",
+    "heart_rate": 85,
+    "temperature": 98.2,
+    "respiratory_rate": 16,
+    "oxygen_saturation": 99,
+    "height": 160.0,
+    "weight": 55.0,
+    "bmi": 21.5,
+    "pain_scale": 0
+  },
+  "lab_results": {
+    "fasting_glucose": 88,
+    "total_cholesterol": 165,
+    "ldl_cholesterol": 85,
+    "hdl_cholesterol": 65,
+    "triglycerides": 95,
+    "creatinine": 0.8,
+    "egfr": 105,
+    "hemoglobin": 11.2,
+    "alt": 22,
+    "bun": 12
+  },
+  "chief_complaint": "Follow-up for anxiety management and thyroid function",
+  "family_history": "Mother: Hypothyroidism, Depression\nFather: Healthy",
+  "past_history": "No significant past medical history",
+  "notes": "Patient responding well to sertraline. Iron levels improving with supplementation. TSH levels stable on current levothyroxine dose.",
+  "created_at": "2025-10-18T10:30:00Z",
+  "last_modified": "2025-10-18T10:30:00Z",
+  "saved_at": "2025-10-18T10:30:00Z"
+}

@@ -1,0 +1,101 @@
+{
+  "patient_id": "P011678",
+  "name": "David Rodriguez",
+  "age": 19,
+  "date_of_birth": "2006-09-12",
+  "gender": "Male",
+  "diagnoses": [
+    "Type 1 Diabetes Mellitus",
+    "Diabetic Ketoacidosis (recent episode)",
+    "Depression"
+  ],
+  "symptoms": [
+    "Frequent urination",
+    "Excessive thirst",
+    "Weight loss",
+    "Fatigue",
+    "Mood swings"
+  ],
+  "medications": [
+    {
+      "name": "Insulin glargine",
+      "dosage": "22 units at bedtime",
+      "status": "active"
+    },
+    {
+      "name": "Insulin lispro",
+      "dosage": "with meals (carb ratio 1:12)",
+      "status": "active"
+    },
+    {
+      "name": "Metformin",
+      "dosage": "500mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Fluoxetine",
+      "dosage": "20mg daily",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Insulin glargine",
+      "dosage": "22 units at bedtime",
+      "status": "active"
+    },
+    {
+      "name": "Insulin lispro",
+      "dosage": "with meals (carb ratio 1:12)",
+      "status": "active"
+    },
+    {
+      "name": "Metformin",
+      "dosage": "500mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Fluoxetine",
+      "dosage": "20mg daily",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "No known drug allergies",
+      "reaction": "Unknown"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "118/72",
+    "heart_rate": 92,
+    "temperature": 98.8,
+    "respiratory_rate": 18,
+    "oxygen_saturation": 98,
+    "height": 175.0,
+    "weight": 65.0,
+    "bmi": 21.2,
+    "pain_scale": 0
+  },
+  "lab_results": {
+    "hba1c": 9.2,
+    "fasting_glucose": 185,
+    "total_cholesterol": 160,
+    "ldl_cholesterol": 95,
+    "hdl_cholesterol": 45,
+    "triglycerides": 100,
+    "creatinine": 0.8,
+    "egfr": 120,
+    "hemoglobin": 13.8,
+    "alt": 22,
+    "bun": 12
+  },
+  "chief_complaint": "Follow-up after recent DKA hospitalization, diabetes management",
+  "family_history": "Father: Type 2 DM\nMother: Healthy\nGrandfather (paternal): Type 1 DM",
+  "past_history": "Diagnosed with T1DM at age 12, Recent DKA hospitalization 2 weeks ago",
+  "notes": "Young adult with T1DM and poor glucose control. Recent DKA episode concerning - needs intensive diabetes education and counseling. Depression may be affecting self-care. Consider continuous glucose monitoring.",
+  "created_at": "2025-10-18T11:15:00Z",
+  "last_modified": "2025-10-18T11:15:00Z",
+  "saved_at": "2025-10-18T11:15:00Z"
+}

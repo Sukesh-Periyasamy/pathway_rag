@@ -1,0 +1,111 @@
+{
+  "patient_id": "P010245",
+  "name": "Emily Chen",
+  "age": 45,
+  "date_of_birth": "1980-04-08",
+  "gender": "Female",
+  "diagnoses": [
+    "Breast Cancer (Stage II - in remission)",
+    "Osteoporosis",
+    "Chemotherapy-induced neuropathy",
+    "Depression"
+  ],
+  "symptoms": [
+    "Peripheral numbness in hands/feet",
+    "Fatigue",
+    "Joint pain",
+    "Mood changes",
+    "Sleep disturbances"
+  ],
+  "medications": [
+    {
+      "name": "Tamoxifen",
+      "dosage": "20mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Calcium carbonate",
+      "dosage": "1200mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Vitamin D3",
+      "dosage": "2000 IU daily",
+      "status": "active"
+    },
+    {
+      "name": "Gabapentin",
+      "dosage": "300mg three times daily",
+      "status": "active"
+    },
+    {
+      "name": "Sertraline",
+      "dosage": "50mg daily",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Tamoxifen",
+      "dosage": "20mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Calcium carbonate",
+      "dosage": "1200mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Vitamin D3",
+      "dosage": "2000 IU daily",
+      "status": "active"
+    },
+    {
+      "name": "Gabapentin",
+      "dosage": "300mg three times daily",
+      "status": "active"
+    },
+    {
+      "name": "Sertraline",
+      "dosage": "50mg daily",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "Doxorubicin",
+      "reaction": "severe cardiotoxicity reaction"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "125/78",
+    "heart_rate": 88,
+    "temperature": 98.6,
+    "respiratory_rate": 16,
+    "oxygen_saturation": 99,
+    "height": 162.0,
+    "weight": 58.0,
+    "bmi": 22.1,
+    "pain_scale": 4
+  },
+  "lab_results": {
+    "fasting_glucose": 92,
+    "total_cholesterol": 195,
+    "ldl_cholesterol": 115,
+    "hdl_cholesterol": 58,
+    "triglycerides": 110,
+    "creatinine": 0.9,
+    "egfr": 95,
+    "hemoglobin": 10.5,
+    "alt": 35,
+    "bun": 14
+  },
+  "chief_complaint": "Routine oncology follow-up, reports worsening neuropathy symptoms",
+  "family_history": "Mother: Breast cancer at 52\nGrandmother (maternal): Ovarian cancer",
+  "past_history": "Right mastectomy 2022, Chemotherapy completed 2023, Radiation therapy completed 2023",
+  "notes": "Patient in remission from Stage II breast cancer. Neuropathy symptoms affecting quality of life. Consider adjusting gabapentin dose or alternative neuropathy treatments. Continue tamoxifen therapy as planned.",
+  "created_at": "2025-10-18T11:00:00Z",
+  "last_modified": "2025-10-18T11:00:00Z",
+  "saved_at": "2025-10-18T11:00:00Z"
+}

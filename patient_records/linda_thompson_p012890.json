@@ -1,0 +1,125 @@
+{
+  "patient_id": "P012890",
+  "name": "Linda Thompson",
+  "age": 62,
+  "date_of_birth": "1963-12-03",
+  "gender": "Female",
+  "diagnoses": [
+    "COPD Gold Stage III",
+    "Major Depressive Disorder",
+    "Osteoporosis",
+    "Chronic Pain"
+  ],
+  "symptoms": [
+    "Chronic dyspnea",
+    "Productive cough",
+    "Low mood",
+    "Back pain",
+    "Exercise intolerance"
+  ],
+  "medications": [
+    {
+      "name": "Tiotropium/Olodaterol",
+      "dosage": "inhaler daily",
+      "status": "active"
+    },
+    {
+      "name": "Albuterol",
+      "dosage": "inhaler as needed",
+      "status": "active"
+    },
+    {
+      "name": "Prednisone",
+      "dosage": "10mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Venlafaxine",
+      "dosage": "150mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Tramadol",
+      "dosage": "50mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Alendronate",
+      "dosage": "70mg weekly",
+      "status": "active"
+    }
+  ],
+  "current_medications": [
+    {
+      "name": "Tiotropium/Olodaterol",
+      "dosage": "inhaler daily",
+      "status": "active"
+    },
+    {
+      "name": "Albuterol",
+      "dosage": "inhaler as needed",
+      "status": "active"
+    },
+    {
+      "name": "Prednisone",
+      "dosage": "10mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Venlafaxine",
+      "dosage": "150mg daily",
+      "status": "active"
+    },
+    {
+      "name": "Tramadol",
+      "dosage": "50mg twice daily",
+      "status": "active"
+    },
+    {
+      "name": "Alendronate",
+      "dosage": "70mg weekly",
+      "status": "active"
+    }
+  ],
+  "past_medications": [],
+  "allergies": [
+    {
+      "allergen": "Morphine",
+      "reaction": "respiratory depression"
+    },
+    {
+      "allergen": "Latex",
+      "reaction": "contact dermatitis"
+    }
+  ],
+  "vital_signs": {
+    "blood_pressure": "142/88",
+    "heart_rate": 95,
+    "temperature": 98.2,
+    "respiratory_rate": 24,
+    "oxygen_saturation": 91,
+    "height": 158.0,
+    "weight": 52.0,
+    "bmi": 20.8,
+    "pain_scale": 6
+  },
+  "lab_results": {
+    "fasting_glucose": 105,
+    "total_cholesterol": 210,
+    "ldl_cholesterol": 130,
+    "hdl_cholesterol": 48,
+    "triglycerides": 160,
+    "creatinine": 1.0,
+    "egfr": 75,
+    "hemoglobin": 11.8,
+    "alt": 28,
+    "bun": 18
+  },
+  "chief_complaint": "Worsening shortness of breath and increased depression symptoms",
+  "family_history": "Father: Emphysema, died at 68\nMother: Depression",
+  "past_history": "Former smoker (2 packs/day for 40 years, quit 5 years ago), Multiple COPD exacerbations",
+  "notes": "Patient with advanced COPD experiencing worsening symptoms. Depression affecting quality of life. Consider pulmonary rehabilitation. Long-term prednisone use concerning for osteoporosis progression.",
+  "created_at": "2025-10-18T11:30:00Z",
+  "last_modified": "2025-10-18T11:30:00Z",
+  "saved_at": "2025-10-18T11:30:00Z"
+}

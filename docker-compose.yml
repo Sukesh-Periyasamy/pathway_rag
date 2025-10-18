@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Pathway RAG Backend
+  pathway-rag:
+    image: my-pathway-app
+    container_name: pathway-rag-backend
+    ports:
+      - "8008:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ../data:/app/data:ro
+    networks:
+      - medcare-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/v1/pw_ai_answer", "-X", "POST", "-H", "Content-Type: application/json", "-d", "{\"prompt\":\"test\"}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # MedCare AI CDSS Application
+  medcare-ai:
+    build: .
+    container_name: medcare-ai-cdss
+    ports:
+      - "8505:8505"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PATHWAY_RAG_URL=http://pathway-rag:8000
+      - PYTHONPATH=/app/src
+    depends_on:
+      pathway-rag:
+        condition: service_healthy
+    networks:
+      - medcare-network
+    volumes:
+      - ./data:/app/data:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8505/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+networks:
+  medcare-network:
+    driver: bridge
