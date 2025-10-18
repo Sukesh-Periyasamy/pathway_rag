@@ -209,6 +209,79 @@ def patient_management_page():
     """Display patient management page."""
     st.header("👥 Patient Records Management")
     
+    # Get saved patients for statistics
+    patients = get_saved_patients()
+    
+    # Patient Statistics Dashboard
+    if patients:
+        st.subheader("📊 Patient Database Overview")
+        
+        # Calculate statistics
+        total_patients = len(patients)
+        avg_age = sum(int(p.get('age', 0)) for p in patients if str(p.get('age', '')).isdigit()) / max(1, total_patients)
+        gender_counts = {}
+        condition_counts = {}
+        medication_counts = {}
+        
+        for patient in patients:
+            # Gender distribution
+            gender = patient.get('gender', 'Unknown')
+            gender_counts[gender] = gender_counts.get(gender, 0) + 1
+            
+            # Load full patient data for detailed stats
+            try:
+                full_data = load_patient_data_from_file(patient['filepath'])
+                
+                # Count conditions
+                for condition in full_data.get('diagnoses', []):
+                    condition_counts[condition] = condition_counts.get(condition, 0) + 1
+                
+                # Count medications  
+                medications = full_data.get('current_medications', full_data.get('medications', []))
+                for med in medications:
+                    med_name = med.get('name', med) if isinstance(med, dict) else str(med).split()[0]
+                    medication_counts[med_name] = medication_counts.get(med_name, 0) + 1
+                    
+            except Exception:
+                continue
+        
+        # Display statistics in columns
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.metric("👥 Total Patients", total_patients)
+            
+        with col2:
+            st.metric("📅 Average Age", f"{avg_age:.0f} years")
+            
+        with col3:
+            most_common_condition = max(condition_counts.items(), key=lambda x: x[1]) if condition_counts else ("None", 0)
+            st.metric("🏥 Top Condition", f"{most_common_condition[0][:15]}..." if len(most_common_condition[0]) > 15 else most_common_condition[0])
+            
+        with col4:
+            most_common_med = max(medication_counts.items(), key=lambda x: x[1]) if medication_counts else ("None", 0)
+            st.metric("💊 Top Medication", f"{most_common_med[0][:15]}..." if len(most_common_med[0]) > 15 else most_common_med[0])
+        
+        # Gender and condition breakdown
+        col_a, col_b = st.columns(2)
+        
+        with col_a:
+            if gender_counts:
+                st.write("**👤 Gender Distribution:**")
+                for gender, count in sorted(gender_counts.items()):
+                    percentage = (count / total_patients) * 100
+                    st.write(f"• {gender}: {count} ({percentage:.1f}%)")
+        
+        with col_b:
+            if condition_counts:
+                st.write("**🏥 Top 5 Conditions:**")
+                sorted_conditions = sorted(condition_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+                for condition, count in sorted_conditions:
+                    st.write(f"• {condition}: {count} patients")
+        
+        st.markdown("---")
+    
+    # Header and controls
     col1, col2 = st.columns([3, 1])
     
     with col2:
@@ -219,11 +292,35 @@ def patient_management_page():
     with col1:
         st.subheader("📁 Existing Patient Records")
     
-    # Get saved patients
-    patients = get_saved_patients()
-    
     if not patients:
-        st.info("No patient records found. Click 'Add New Patient' to create the first record.")
+        st.info("📋 No patient records found. Click 'Add New Patient' to create the first record.")
+        
+        # Show sample patients section even if no saved patients
+        st.markdown("### 🧪 Try Sample Patients")
+        st.info("💡 **Quick Start Tip:** Use the sample patient data below to test the system immediately!")
+        
+        # Load and display sample patients
+        sample_patients = load_sample_patients_from_json()
+        if sample_patients:
+            cols = st.columns(2)
+            for i, (patient_name, patient_data) in enumerate(list(sample_patients.items())[:4]):  # Show first 4
+                col = cols[i % 2]
+                with col:
+                    with st.container():
+                        st.markdown(f"""
+                        <div style="border: 2px solid #1f77b4; padding: 15px; margin: 10px 0; border-radius: 8px; background-color: #f0f8ff;">
+                            <h4 style="color: #1f77b4; margin-bottom: 10px;">👤 {patient_data.get('name', 'Unknown')}</h4>
+                            <p><strong>Age:</strong> {patient_data.get('age', '??')} | <strong>Gender:</strong> {patient_data.get('gender', 'Unknown')}</p>
+                            <p><strong>Conditions:</strong> {len(patient_data.get('diagnoses', []))} | <strong>Medications:</strong> {len(patient_data.get('current_medications', []))}</p>
+                        </div>
+                        """, unsafe_allow_html=True)
+                        
+                        if st.button(f"🚀 Try {patient_data.get('name', 'Patient')}", key=f"try_sample_{i}", use_container_width=True):
+                            # Load this patient for immediate analysis
+                            st.session_state.patient_data = patient_data
+                            st.session_state.mode = 'analysis'
+                            st.success(f"✅ Loaded {patient_data.get('name')} - Ready for analysis!")
+                            st.rerun()
         return
     
     # Display patients in a grid
@@ -279,50 +376,112 @@ def create_patient_form(edit_mode=False, existing_data=None) -> Dict[str, Any]:
         st.header("➕ Add New Patient")
         st.markdown("Enter detailed patient information for clinical decision support.")
     
-    # Sample patient data for quick testing
-    sample_patients = {
-        "Margaret Johnson (68F - Diabetes, HTN, Afib)": {
-            'patient_id': 'P001234',
-            'name': 'Margaret Johnson',
-            'age': 68,
-            'gender': 'Female',
-            'diagnoses': ['Type 2 Diabetes Mellitus', 'Essential Hypertension', 'Atrial Fibrillation', 'Chronic Kidney Disease Stage 3'],
-            'symptoms': ['Occasional chest palpitations', 'Mild fatigue', 'Frequent urination'],
-            'current_medications': [
-                'Metformin 1000mg twice daily',
-                'Lisinopril 10mg daily', 
-                'Simvastatin 40mg daily',
-                'Warfarin 5mg daily (newly prescribed)'
-            ],
-            'allergies': ['Penicillin - rash', 'Sulfa drugs - nausea'],
-            'vital_signs': {
-                'blood_pressure': '145/92',
-                'heart_rate': 78,
-                'temperature': 98.4,
-                'respiratory_rate': 18,
-                'oxygen_saturation': 97,
-                'height': 165.0,
-                'weight': 82.0,
-                'bmi': 30.1,
-                'pain_scale': 2
+def load_sample_patients_from_json() -> Dict[str, Dict]:
+    """Load sample patient data from JSON files in patient_records directory."""
+    sample_patients = {}
+    
+    # Get the patient records directory
+    project_root = Path(__file__).parent.parent.parent
+    patient_records_dir = project_root / "patient_records"
+    
+    if not patient_records_dir.exists():
+        return {}
+    
+    # Load each JSON file
+    for json_file in patient_records_dir.glob("*.json"):
+        try:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                patient_data = json.load(f)
+                
+            # Create a display name
+            name = patient_data.get('name', 'Unknown')
+            age = patient_data.get('age', '??')
+            gender = patient_data.get('gender', '?')[0] if patient_data.get('gender') else '?'
+            
+            # Get primary diagnoses (first 2-3 conditions)
+            diagnoses = patient_data.get('diagnoses', [])
+            primary_conditions = []
+            for dx in diagnoses[:3]:
+                if 'diabetes' in dx.lower():
+                    primary_conditions.append('DM')
+                elif 'hypertension' in dx.lower():
+                    primary_conditions.append('HTN')
+                elif 'atrial fibrillation' in dx.lower():
+                    primary_conditions.append('AFib')
+                elif 'copd' in dx.lower() or 'chronic obstructive' in dx.lower():
+                    primary_conditions.append('COPD')
+                elif 'heart failure' in dx.lower():
+                    primary_conditions.append('HF')
+                elif 'anxiety' in dx.lower():
+                    primary_conditions.append('Anxiety')
+                elif 'depression' in dx.lower():
+                    primary_conditions.append('Depression')
+                elif 'chronic kidney' in dx.lower():
+                    primary_conditions.append('CKD')
+                elif 'pain' in dx.lower():
+                    primary_conditions.append('Pain')
+                else:
+                    # Take first word of condition
+                    primary_conditions.append(dx.split()[0] if dx else '')
+            
+            conditions_str = ', '.join(primary_conditions[:3]) if primary_conditions else 'Multiple'
+            display_name = f"{name} ({age}{gender} - {conditions_str})"
+            
+            sample_patients[display_name] = patient_data
+            
+        except Exception as e:
+            st.error(f"Error loading {json_file.name}: {e}")
+    
+    return sample_patients
+
+    # Load sample patient data from JSON files
+    sample_patients = load_sample_patients_from_json()
+    
+    # Fallback hardcoded data if no JSON files found
+    if not sample_patients:
+        sample_patients = {
+            "Margaret Johnson (68F - Diabetes, HTN, Afib)": {
+                'patient_id': 'P001234',
+                'name': 'Margaret Johnson',
+                'age': 68,
+                'gender': 'Female',
+                'diagnoses': ['Type 2 Diabetes Mellitus', 'Essential Hypertension', 'Atrial Fibrillation', 'Chronic Kidney Disease Stage 3'],
+                'symptoms': ['Occasional chest palpitations', 'Mild fatigue', 'Frequent urination'],
+                'current_medications': [
+                    'Metformin 1000mg twice daily',
+                    'Lisinopril 10mg daily', 
+                    'Simvastatin 40mg daily',
+                    'Warfarin 5mg daily (newly prescribed)'
+                ],
+                'allergies': ['Penicillin - rash', 'Sulfa drugs - nausea'],
+                'vital_signs': {
+                    'blood_pressure': '145/92',
+                    'heart_rate': 78,
+                    'temperature': 98.4,
+                    'respiratory_rate': 18,
+                    'oxygen_saturation': 97,
+                    'height': 165.0,
+                    'weight': 82.0,
+                    'bmi': 30.1,
+                    'pain_scale': 2
+                },
+                'lab_results': {
+                    'hba1c': 7.8,
+                    'fasting_glucose': 145,
+                    'total_cholesterol': 220,
+                    'ldl_cholesterol': 135,
+                    'hdl_cholesterol': 45,
+                    'triglycerides': 180,
+                    'creatinine': 1.3,
+                    'egfr': 55,
+                    'hemoglobin': 12.1,
+                    'alt': 28,
+                    'bun': 22
+                },
+                'chief_complaint': 'Follow-up for diabetes management and new atrial fibrillation diagnosis',
+                'family_history': 'Father: Type 2 DM, CAD\nMother: Hypertension, Stroke',
+                'past_history': 'Cholecystectomy 2015, No previous hospitalizations for cardiac events'
             },
-            'lab_results': {
-                'hba1c': 7.8,
-                'fasting_glucose': 145,
-                'total_cholesterol': 220,
-                'ldl_cholesterol': 135,
-                'hdl_cholesterol': 45,
-                'triglycerides': 180,
-                'creatinine': 1.3,
-                'egfr': 55,
-                'hemoglobin': 12.1,
-                'alt': 28,
-                'bun': 22
-            },
-            'chief_complaint': 'Follow-up for diabetes management and new atrial fibrillation diagnosis',
-            'family_history': 'Father: Type 2 DM, CAD\nMother: Hypertension, Stroke',
-            'past_history': 'Cholecystectomy 2015, No previous hospitalizations for cardiac events'
-        },
         "Robert Chen (72M - CAD, COPD)": {
             'patient_id': 'P005678', 
             'name': 'Robert Chen',
@@ -662,19 +821,80 @@ def create_patient_form(edit_mode=False, existing_data=None) -> Dict[str, Any]:
         }
     }
     
-    # Sample data selector
+    # Sample data selector with enhanced display
     with st.expander("📋 Load Sample Patient Data for Testing", expanded=False):
-        st.markdown("**Quick start with pre-configured patient scenarios:**")
-        
-        cols = st.columns(2)
-        for i, (patient_name, patient_data) in enumerate(sample_patients.items()):
-            col = cols[i % 2]
-            with col:
-                if st.button(f"📝 {patient_name}", key=f"load_sample_{i}", help=f"Load sample data for {patient_data['name']}"):
-                    # Store sample data in session state for pre-filling
-                    st.session_state.sample_data = patient_data
-                    st.success(f"✅ Loaded sample data for {patient_data['name']}")
-                    st.rerun()
+        if sample_patients:
+            st.markdown("**🏥 Pre-configured patient scenarios for clinical testing:**")
+            
+            # Display patients in an organized grid
+            cols = st.columns(2)
+            for i, (patient_name, patient_data) in enumerate(sample_patients.items()):
+                col = cols[i % 2]
+                with col:
+                    # Create patient card with detailed info
+                    with st.container():
+                        st.markdown(f"""
+                        <div class="patient-card" style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; background-color: #f9f9f9;">
+                            <h4 style="margin-bottom: 10px; color: #1f77b4;">👤 {patient_data.get('name', 'Unknown')}</h4>
+                            <p style="margin: 5px 0;"><strong>ID:</strong> {patient_data.get('patient_id', 'N/A')} | 
+                               <strong>Age:</strong> {patient_data.get('age', '??')} | 
+                               <strong>Gender:</strong> {patient_data.get('gender', 'Unknown')}</p>
+                            <p style="margin: 5px 0;"><strong>📋 Conditions:</strong> {len(patient_data.get('diagnoses', []))} diagnoses</p>
+                            <p style="margin: 5px 0;"><strong>💊 Medications:</strong> {len(patient_data.get('current_medications', patient_data.get('medications', [])))} active</p>
+                            <p style="margin: 5px 0; font-size: 0.9em; color: #666;">
+                                <strong>Chief Complaint:</strong> {(patient_data.get('chief_complaint', 'General assessment'))[:60]}...
+                            </p>
+                        </div>
+                        """, unsafe_allow_html=True)
+                        
+                        # Load button with patient info
+                        if st.button(f"📝 Load {patient_data.get('name', 'Patient')}", 
+                                   key=f"load_sample_{i}", 
+                                   help=f"Load complete data for {patient_data.get('name', 'this patient')}\n\nIncludes: Vital signs, lab results, medications, and medical history",
+                                   use_container_width=True):
+                            # Store sample data in session state for pre-filling
+                            st.session_state.sample_data = patient_data
+                            st.success(f"✅ Loaded sample data for {patient_data.get('name', 'patient')}")
+                            # Show a preview of loaded data
+                            with st.expander("🔍 Preview Loaded Data", expanded=True):
+                                col_a, col_b = st.columns(2)
+                                with col_a:
+                                    st.write("**📋 Diagnoses:**")
+                                    for dx in patient_data.get('diagnoses', [])[:5]:
+                                        st.write(f"• {dx}")
+                                    
+                                    st.write("**💊 Medications:**")
+                                    meds = patient_data.get('current_medications', patient_data.get('medications', []))
+                                    for med in (meds[:3] if isinstance(meds, list) else []):
+                                        if isinstance(med, dict):
+                                            st.write(f"• {med.get('name', 'Unknown')} - {med.get('dosage', 'Unknown dose')}")
+                                        else:
+                                            st.write(f"• {med}")
+                                
+                                with col_b:
+                                    st.write("**🩺 Vital Signs:**")
+                                    vs = patient_data.get('vital_signs', {})
+                                    if vs:
+                                        st.write(f"• BP: {vs.get('blood_pressure', 'N/A')}")
+                                        st.write(f"• HR: {vs.get('heart_rate', 'N/A')} bpm")
+                                        st.write(f"• Temp: {vs.get('temperature', 'N/A')}°F")
+                                        st.write(f"• O2 Sat: {vs.get('oxygen_saturation', 'N/A')}%")
+                                    
+                                    st.write("**🧪 Key Lab Results:**")
+                                    labs = patient_data.get('lab_results', {})
+                                    if labs:
+                                        if 'hba1c' in labs:
+                                            st.write(f"• HbA1c: {labs['hba1c']}%")
+                                        if 'creatinine' in labs:
+                                            st.write(f"• Creatinine: {labs['creatinine']} mg/dL")
+                                        if 'total_cholesterol' in labs:
+                                            st.write(f"• Total Chol: {labs['total_cholesterol']} mg/dL")
+                            st.rerun()
+        else:
+            st.info("📂 No sample patient files found in patient_records directory")
+            st.markdown("**To add sample patients:**")
+            st.markdown("1. Save patient records using the form below")
+            st.markdown("2. Or place JSON patient files in the `patient_records/` directory")
         
         if st.button("🗑️ Clear All Fields", key="clear_form"):
             if 'sample_data' in st.session_state:
