@@ -1,208 +1,137 @@
-# 🏥 MedCare AI – Intelligent Clinical RAG System
+# 🏥 MedCare AI – Intelligent Clinical Decision Support System
+
+<div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-orange.svg)](https://openai.com/)
 [![Pathway](https://img.shields.io/badge/Pathway-RAG-purple.svg)](https://pathway.com/)
 [![PubMed](https://img.shields.io/badge/PubMed-E--Utilities-red.svg)](https://www.ncbi.nlm.nih.gov/books/NBK25501/)
-[![Hackathon](https://img.shields.io/badge/Pathway-Hackathon_Oct_2025-gold.svg)](https://pathway.com/hackathon)
 
-> 🏆 **Pathway Hackathon October 2025 Submission - Healthcare AI Track**  
-> 🚀 **Personalized Evidence-Based Treatment through AI-Powered Clinical Decision Support**
+**🏆 Pathway Hackathon October 2025 Submission**
 
-**Submitted to Pathway Hackathon October 2025** - MedCare AI is an advanced Clinical Decision Support System that revolutionizes healthcare decision-making by combining real-time medical literature retrieval, intelligent drug interaction analysis, and AI-powered clinical recommendations. Built with cutting-edge **Pathway RAG** technology, PubMed E-Utilities API, and OpenAI's language models to showcase the power of real-time vector databases in healthcare AI applications.
+*AI-Powered Clinical Decision Support with Real-Time Medical Literature Integration*
 
-### 🎯 **Hackathon Innovation Highlights**
-- ⚡ **Real-Time RAG**: Demonstrates Pathway's streaming capabilities with live medical literature integration
-- 🧬 **Vector-Powered Clinical Intelligence**: 17,430+ drug interactions processed through Pathway's high-performance vector engine
-- 🔄 **Live Data Pipeline**: Real-time PubMed research retrieval with semantic similarity ranking
-- 🏥 **Production-Ready Healthcare AI**: Complete clinical workflow from patient input to evidence-based recommendations
+[🚀 Quick Start](#-quick-start) •
+[📖 Documentation](#-documentation) •
+[💻 Demo](#-demo) •
+[🤝 Contributing](#-contributing)
 
----
-
-## 🌟 Key Features
-
-### 🧬 **Intelligent Patient Analysis**
-- **JSON-based Patient Input**: Structured patient data processing via REST API
-- **Comprehensive Clinical Assessment**: Automated analysis of symptoms, conditions, and medical history
-- **Multi-Modal Recommendations**: Immediate, monitoring, and research-based clinical guidance
-
-### 📚 **Automated PubMed Research Integration**
-- **Real-Time Literature Search**: Automatic query generation from patient conditions
-- **Semantic Similarity Ranking**: Advanced embedding-based relevance scoring
-- **Evidence Synthesis**: AI-powered summarization of recent medical research
-- **Rate-Limited API Access**: Compliant with NCBI E-Utilities guidelines (≤10 req/sec)
-
-### 💊 **Advanced Drug Safety System**
-- **Comprehensive Drug Database**: 17,430+ medications with interaction profiles
-- **Real-Time Interaction Checking**: Cross-referencing patient medications
-- **Clinical Guidelines Integration**: Evidence-based prescribing recommendations
-
-### 🎯 **Intelligent Vector Search & RAG**
-- **Pathway-Powered RAG**: High-performance vector database for medical knowledge
-- **Semantic Embeddings**: SentenceTransformers with clinical domain optimization
-- **Top-K Retrieval**: Contextually relevant medical information extraction
-
-### 📊 **Clinical Dashboard & Visualization**
-- **Streamlit Interface**: Interactive web-based clinical workstation
-- **Comprehensive Data Entry**: 20+ vital signs fields, 30+ lab result categories
-- **Research Evidence Display**: Structured presentation with PubMed links and metadata
-- **Patient Management**: Sample patient records and clinical workflow tools
+</div>
 
 ---
 
-## 🏗️ System Architecture
+## 📋 Overview
 
-```mermaid
-graph TB
-    A[👩‍⚕️ Clinician] -->|Patient Data| B[🖥️ Streamlit Frontend]
-    B --> C[⚙️ Clinical Engine]
-    C --> D[🔍 Pathway RAG System]
-    C --> E[📚 PubMed RAG Module]
-    C --> F[🤖 OpenAI GPT-4o-mini]
-    
-    D --> G[💊 DrugBank Vector DB<br/>17,430+ Medications]
-    E --> H[🏛️ PubMed E-Utilities API<br/>NCBI Database]
-    
-    G --> I[📊 Drug Interactions]
-    H --> J[📄 Research Evidence]
-    F --> K[💡 Clinical Insights]
-    
-    I --> L[📋 Clinical Report]
-    J --> L
-    K --> L
-    L --> B
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#fff3e0
-    style L fill:#e8f5e8
-```
+MedCare AI is an advanced Clinical Decision Support System that revolutionizes healthcare decision-making by combining:
 
-### 🔄 **Data Flow Process**
+- **🔄 Real-time medical literature retrieval** from PubMed
+- **💊 Intelligent drug interaction analysis** (17,430+ medications)  
+- **🤖 AI-powered clinical recommendations** via GPT-4o-mini
+- **⚡ High-performance vector search** using Pathway RAG
 
-1. **Patient Input** → Clinician enters comprehensive patient data via Streamlit interface
-2. **Clinical Analysis** → Multi-engine processing through Pathway RAG and OpenAI integration
-3. **Literature Retrieval** → Automated PubMed searches based on patient conditions
-4. **Evidence Synthesis** → AI-powered analysis of drug interactions and research findings
-5. **Clinical Output** → Structured recommendations with supporting evidence and metadata
+Built for the **Pathway Hackathon October 2025**, demonstrating the power of real-time RAG in healthcare AI.
 
----
+## ✨ Key Features
 
-## 🛠️ Installation Guide
+<table>
+<tr>
+<td width="50%">
 
-### 📋 **Prerequisites**
+### 🧬 Clinical Intelligence
+- **Patient Analysis**: Comprehensive symptom & history assessment
+- **Risk Stratification**: AI-powered clinical risk evaluation  
+- **Treatment Recommendations**: Evidence-based guidance
+- **Drug Safety**: Real-time interaction checking
 
-- **Python**: ≥ 3.10
-- **pip**: Latest version
-- **OpenAI API Key**: [Get your API key](https://platform.openai.com/api-keys)
-- **PubMed API Access**: [NCBI E-Utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/) (no key required, rate-limited)
+</td>
+<td width="50%">
 
-### ⚡ **Quick Start with Docker**
+### 📚 Research Integration  
+- **Live PubMed Search**: Automatic literature retrieval
+- **Semantic Ranking**: Relevance-based evidence scoring
+- **Evidence Synthesis**: AI-powered research summaries
+- **Citation Management**: Direct PubMed links & metadata
 
-> 💡 **Recommended for production deployment**
+</td>
+</tr>
+</table>
+
+## 🚀 Quick Start
+
+### Option 1: Docker (Recommended)
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/medcare-ai-cdss.git
-cd medcare-ai-cdss
+# Clone repository
+git clone https://github.com/Sukesh-Periyasamy/pathway_rag.git
+cd pathway_rag
 
-# Build and run with Docker Compose
+# Set your OpenAI API key
+export OPENAI_API_KEY="sk-your-key-here"
+
+# Start services
 docker-compose up -d
 
-# Access the application
-# Frontend: http://localhost:8505
-# Backend:  http://localhost:8008
+# Access application
+open http://localhost:8505
 ```
 
-### 🐍 **Local Development Setup**
+### Option 2: Local Development
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/medcare-ai-cdss.git
-cd medcare-ai-cdss
-
-# 2. Create virtual environment
-python -m venv medcare_env
-source medcare_env/bin/activate  # On Windows: medcare_env\Scripts\activate
-
-# 3. Install dependencies
+# Setup environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# 4. Set up environment variables
+# Configure environment
 cp .env.example .env
-# Edit .env with your API keys (see Environment Variables section)
+# Edit .env with your API keys
 
-# 5. Initialize sample data
-python demo_sample_data.py
-
-# 6. Start the Pathway RAG server
+# Start Pathway RAG server
 python -m pathway.xpacks.llm.run_server &
 
-# 7. Launch the Streamlit application
+# Launch Streamlit app  
 streamlit run src/ui/main_app.py
 ```
 
-### 🧪 **Testing the Installation**
+## 🏗️ Architecture
 
-```bash
-# Run integration tests
-python test_pubmed_integration.py
-
-# Test with sample patient data
-curl -X POST http://localhost:8008/analyze \
-  -H "Content-Type: application/json" \
-  -d @demo/sample_patient.json
+```mermaid
+flowchart TB
+    A[👩‍⚕️ Clinician] -->|Patient Data| B[🖥️ Streamlit UI]
+    B --> C[⚙️ Clinical Engine]
+    
+    C --> D[🔍 Pathway RAG]
+    C --> E[📚 PubMed RAG] 
+    C --> F[🤖 OpenAI GPT-4o]
+    
+    D --> G[💊 Drug Database<br/>17,430+ medications]
+    E --> H[🏛️ PubMed API<br/>Medical literature]
+    
+    G --> I[📊 Clinical Report]
+    H --> I
+    F --> I
+    I --> B
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5  
+    style I fill:#e8f5e8
 ```
 
----
+## 📊 System Capabilities
 
-## ⚙️ Environment Variables
+| Component | Technology | Scale |
+|-----------|------------|-------|
+| **Drug Interactions** | Pathway Vector DB | 17,430+ medications |
+| **Literature Search** | PubMed E-Utilities | Real-time API access |
+| **AI Analysis** | OpenAI GPT-4o-mini | Clinical reasoning |
+| **Embeddings** | SentenceTransformers | Semantic similarity |
+| **Interface** | Streamlit | Interactive dashboard |
 
-Create a `.env` file in the project root with the following configuration:
+## 🔧 API Usage
 
-```bash
-# 🤖 OpenAI Configuration
-OPENAI_API_KEY=sk-your-openai-api-key-here
-OPENAI_MODEL=gpt-4o-mini
-OPENAI_TEMPERATURE=0.3
-OPENAI_MAX_TOKENS=2000
-
-# 🔬 PubMed Configuration  
-PUBMED_EMAIL=your-email@domain.com  # Required for NCBI API
-PUBMED_TOOL=MedCare_AI_CDSS
-PUBMED_MAX_RESULTS=10
-PUBMED_RATE_LIMIT=10  # requests per second
-
-# 🧠 Embeddings Configuration
-EMBEDDER_MODEL=all-mpnet-base-v2
-CLINICAL_EMBEDDER_MODEL=pritamdeka/BioBERT-Base-NLI
-EMBEDDING_DIMENSION=768
-
-# 🗄️ Vector Database Configuration
-PATHWAY_HOST=localhost
-PATHWAY_PORT=8008
-VECTOR_INDEX_PATH=./data/vector_indices/
-
-# 🌐 Application Configuration
-STREAMLIT_PORT=8505
-DEBUG_MODE=false
-LOG_LEVEL=INFO
-MAX_UPLOAD_SIZE=200MB
-
-# 📊 Clinical Configuration
-DRUG_INTERACTION_THRESHOLD=0.7
-CLINICAL_RELEVANCE_THRESHOLD=0.6
-MAX_RECOMMENDATIONS=10
-```
-
-> ⚠️ **Security Note**: Never commit your `.env` file to version control. Add it to `.gitignore`.
-
----
-
-## 🚀 Example Usage
-
-### 📤 **Patient Data Submission**
+### Patient Analysis
 
 ```bash
 curl -X POST http://localhost:8008/v1/pw_ai_answer \
@@ -210,292 +139,166 @@ curl -X POST http://localhost:8008/v1/pw_ai_answer \
   -d '{
     "query": "analyze_patient",
     "patient_data": {
-      "patient_info": {
-        "name": "John Smith",
-        "age": 65,
-        "gender": "Male",
-        "weight": "180 lbs",
-        "height": "5'\''10'\''"
-      },
-      "medical_history": {
-        "conditions": ["Type 2 Diabetes", "Hypertension", "Chronic Kidney Disease"],
-        "medications": ["Metformin 1000mg", "Lisinopril 10mg", "Atorvastatin 20mg"],
-        "allergies": ["Penicillin", "Sulfa drugs"]
-      },
-      "current_symptoms": ["Fatigue", "Blurred vision", "Frequent urination"],
+      "conditions": ["Type 2 Diabetes", "Hypertension"],
+      "medications": ["Metformin 1000mg", "Lisinopril 10mg"],
+      "symptoms": ["Fatigue", "Blurred vision"],
       "vital_signs": {
         "blood_pressure": "150/95 mmHg",
-        "heart_rate": "88 bpm",
-        "temperature": "98.6°F",
-        "respiratory_rate": "16/min",
-        "oxygen_saturation": "97%"
+        "heart_rate": "88 bpm"
       },
       "lab_results": {
         "hba1c": "8.2%",
-        "creatinine": "1.8 mg/dL",
-        "egfr": "35 mL/min/1.73m²",
-        "ldl_cholesterol": "145 mg/dL"
+        "creatinine": "1.8 mg/dL"
       }
     }
   }'
 ```
 
-### 📥 **Clinical Response Example**
+### Response Format
 
 ```json
 {
-  "patient_id": "patient_12345",
-  "analysis_timestamp": "2025-10-18T14:30:00Z",
   "clinical_summary": {
-    "primary_concerns": [
-      "Poorly controlled diabetes (HbA1c 8.2%)",
-      "Stage 3B chronic kidney disease",
-      "Hypertension with target organ damage"
-    ],
-    "risk_assessment": "High cardiovascular and renal risk"
+    "primary_concerns": ["Poorly controlled diabetes", "Stage 3B CKD"],
+    "risk_assessment": "High cardiovascular risk"
   },
   "recommendations": {
     "immediate": [
       {
         "priority": "High",
         "action": "Diabetes medication optimization",
-        "description": "Consider adding SGLT2 inhibitor for renal protection",
         "evidence_level": "Grade A"
       }
     ],
-    "monitoring": [
+    "research_evidence": [
       {
-        "parameter": "Kidney function",
-        "frequency": "Every 3 months",
-        "target": "Prevent further decline in eGFR"
+        "title": "SGLT2 Inhibitors in CKD",
+        "pmid": "34449189",
+        "relevance_score": 0.94
       }
-    ],
-    "research_based": [
-      {
-        "title": "SGLT2 Inhibitors in CKD and Diabetes",
-        "evidence_source": "pubmed_literature",
-        "relevance_score": 0.94,
-        "supporting_studies": [
-          {
-            "pmid": "34449189",
-            "title": "Cardiovascular and Renal Outcomes with Empagliflozin in Heart Failure",
-            "pubdate": "2021-08-27",
-            "relevance": "High",
-            "doi": "10.1056/NEJMoa2022190"
-          }
-        ]
-      }
-    ]
-  },
-  "drug_interactions": {
-    "warnings": [
-      {
-        "severity": "Moderate",
-        "interaction": "Lisinopril + High creatinine",
-        "recommendation": "Monitor kidney function closely"
-      }
-    ]
-  },
-  "patient_education": {
-    "key_points": [
-      "Importance of blood sugar monitoring",
-      "Dietary modifications for CKD",
-      "Recognition of hypoglycemia symptoms"
     ]
   }
 }
 ```
 
-### 🖥️ **Streamlit Interface Usage**
-
-1. **Access Dashboard**: Navigate to `http://localhost:8505`
-2. **Load Patient**: Select from sample patients or create new patient profile
-3. **Enter Clinical Data**: Use the comprehensive forms for vital signs and lab results
-4. **Generate Analysis**: Click "Analyze Patient" to trigger AI assessment
-5. **Review Results**: Explore recommendations, research evidence, and drug interactions
-6. **Export Report**: Generate PDF clinical reports for documentation
-
----
-
 ## 📁 Project Structure
 
 ```
 MedCare_AI_CDSS/
-├── 📊 data/                          # Data storage and processing
-│   ├── drug_interactions/            # DrugBank interaction data
-│   ├── vector_indices/              # Pathway vector database files
-│   └── clinical_guidelines/         # Medical guideline references
-├── 📋 demo/                          # Demo scripts and sample data
-│   ├── sample_patients/             # Example patient JSON files
-│   └── demo_scenarios.py           # Interactive demo scenarios  
-├── 📚 docs/                          # Documentation and guides
-│   ├── api_reference.md            # API endpoint documentation
-│   ├── clinical_workflows.md       # Healthcare professional guides
-│   └── deployment_guide.md         # Production deployment instructions
-├── 📝 logs/                          # Application logs and monitoring
-├── 🏥 patient_records/              # Sample patient database
-├── 🧪 scripts/                       # Utility and maintenance scripts  
-│   ├── fresh_start.py              # Environment reset utility
-│   ├── start_demo.bat              # Windows demo launcher
-│   └── test_docker_deployment.py   # Docker testing script
-├── 💻 src/                           # Main application source code
-│   ├── core/                       # Core business logic
-│   │   ├── clinical_engine.py      # 🧠 Main clinical analysis engine
-│   │   └── pathway_pubmed_patient_rag.py  # 📚 PubMed RAG integration
-│   ├── ui/                         # User interface components
-│   │   └── main_app.py             # 🖥️ Streamlit dashboard application
-│   └── utils/                      # Helper functions and utilities
-│       └── config.py               # ⚙️ Configuration management
-├── 🧪 tests/                         # Test suites and validation
-│   ├── test_clinical_engine.py     # Clinical logic tests
-│   ├── test_drugbank_vectordb.py   # Drug database tests
-│   ├── test_gpt_integration.py     # OpenAI integration tests
-│   └── test_pdf_generation.py      # Report generation tests
-├── 🐳 docker-compose.yml            # Multi-container orchestration
-├── 🐳 Dockerfile                    # Container image definition
-├── 📦 requirements.txt              # Python dependencies
-├── ⚙️ setup.py                      # Package installation script
-└── 📄 README.md                     # Project documentation (this file)
+├── 🐳 docker-compose.yml       # Container orchestration
+├── 📦 requirements.txt         # Python dependencies  
+├── 🏥 patient_records/         # Sample patient data
+├── 💻 src/
+│   ├── core/
+│   │   ├── clinical_engine.py  # Main analysis engine
+│   │   └── pathway_pubmed_patient_rag.py  # PubMed integration
+│   ├── ui/
+│   │   └── main_app.py         # Streamlit dashboard
+│   └── utils/
+│       └── config.py           # Configuration
+└── 🧪 tests/                   # Test suites
 ```
 
----
+## ⚙️ Configuration
 
-## 🔧 Technologies Used
+Create `.env` file:
 
-### 🧠 **AI & Machine Learning**
-- **[OpenAI GPT-4o-mini](https://openai.com/)**: Advanced language model for clinical analysis and synthesis
-- **[SentenceTransformers](https://www.sbert.net/)**: Semantic embeddings with `all-mpnet-base-v2` model
-- **[BioBERT](https://huggingface.co/pritamdeka/BioBERT-Base-NLI)**: Biomedical domain-specific embeddings
+```bash
+# OpenAI Configuration
+OPENAI_API_KEY=sk-your-key-here
+OPENAI_MODEL=gpt-4o-mini
 
-### 🗄️ **Data & Retrieval**
-- **[Pathway](https://pathway.com/)**: High-performance RAG framework for real-time vector operations
-- **[PubMed E-Utilities](https://www.ncbi.nlm.nih.gov/books/NBK25501/)**: NCBI's API for medical literature access
-- **[DrugBank](https://go.drugbank.com/)**: Comprehensive pharmaceutical database integration
-- **[FAISS](https://github.com/facebookresearch/faiss)**: Efficient similarity search and clustering
+# PubMed Configuration  
+PUBMED_EMAIL=your-email@domain.com
+PUBMED_MAX_RESULTS=10
 
-### 🖥️ **Frontend & Backend**
-- **[Streamlit](https://streamlit.io/)**: Interactive web application framework
-- **[FastAPI](https://fastapi.tiangolo.com/)**: High-performance REST API backend (via Pathway)
-- **[Docker](https://www.docker.com/)**: Containerization for consistent deployment
+# Application Settings
+PATHWAY_HOST=localhost
+PATHWAY_PORT=8008
+STREAMLIT_PORT=8505
+DEBUG_MODE=false
+```
 
-### 📊 **Data Processing**
-- **[Pandas](https://pandas.pydata.org/)**: Data manipulation and analysis
-- **[NumPy](https://numpy.org/)**: Numerical computing foundation
-- **[Scikit-learn](https://scikit-learn.org/)**: Machine learning utilities
-- **[ReportLab](https://www.reportlab.com/)**: PDF clinical report generation
+## 🛠️ Technology Stack
 
----
+- **🧠 AI/ML**: OpenAI GPT-4o-mini, SentenceTransformers, BioBERT
+- **🗄️ Data**: Pathway RAG, PubMed E-Utilities, DrugBank, FAISS
+- **🖥️ Frontend**: Streamlit, Interactive Dashboard
+- **⚙️ Backend**: FastAPI (via Pathway), REST APIs
+- **📊 Processing**: Pandas, NumPy, Scikit-learn
+- **🐳 Deployment**: Docker, Docker Compose
 
-## 🚀 Future Enhancements
+## 💻 Demo
 
-### 📈 **Near-term Roadmap (Q1 2026)**
-- 🩺 **Clinical Guidelines Integration**: Automated retrieval from medical society guidelines
-- 📱 **Mobile Application**: React Native app for point-of-care access  
-- 🔐 **HIPAA Compliance Module**: Enhanced security and audit logging
-- 🌐 **Multi-language Support**: Internationalization for global healthcare systems
+### Sample Patient Analysis
 
-### 🔬 **Advanced Features (Q2-Q3 2026)**
-- 🧬 **Genomic Data Integration**: Pharmacogenomics and precision medicine
-- 📊 **Predictive Analytics**: Machine learning models for outcome prediction
-- 🔄 **Continuous Learning**: Model updates from anonymized clinical feedback
-- 🏥 **EHR Integration**: Direct connectivity with major electronic health record systems
+The system includes 8 comprehensive patient records for testing:
 
-### 🌍 **Research & Development (Q4 2026+)**
-- 🤖 **Federated Learning**: Privacy-preserving multi-institutional model training
-- 🧪 **Clinical Trial Matching**: Automated patient-trial compatibility assessment
-- 📈 **Real-world Evidence**: Integration of post-market surveillance data
-- 🔬 **Laboratory AI**: Automated diagnostic interpretation and recommendations
+- **Margaret Johnson** (P001234) - Diabetes + Hypertension
+- **Robert Chen** (P005678) - COPD + Heart Failure  
+- **Sarah Williams** (P009123) - Anxiety + Depression
+- **James Rodriguez** (P007890) - Chronic Pain + Sleep Disorders
 
----
+### Clinical Dashboard Features
+
+1. **Patient Input** - Comprehensive clinical data entry
+2. **AI Analysis** - Real-time clinical assessment  
+3. **Research Evidence** - Live PubMed integration
+4. **Drug Safety** - Interaction checking & alerts
+5. **Clinical Reports** - PDF generation for documentation
+
+## 🚀 Future Roadmap
+
+### Phase 1 (Q1 2026)
+- [ ] HIPAA compliance module
+- [ ] Mobile application (React Native)
+- [ ] Clinical guidelines integration
+- [ ] Multi-language support
+
+### Phase 2 (Q2-Q3 2026)  
+- [ ] EHR system integration
+- [ ] Predictive analytics models
+- [ ] Genomic data support
+- [ ] Federated learning capabilities
 
 ## 🤝 Contributing
 
-We welcome contributions from healthcare professionals, developers, and researchers! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [contribution guidelines](CONTRIBUTING.md).
 
-### 👥 **How to Contribute**
-1. **🍴 Fork** the repository
-2. **🌿 Create** a feature branch (`git checkout -b feature/AmazingFeature`)
-3. **💾 Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **📤 Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **🔄 Open** a Pull Request
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
-### 🐛 **Bug Reports & Feature Requests**
-Please use our [GitHub Issues](https://github.com/yourusername/medcare-ai-cdss/issues) template for reporting bugs or suggesting enhancements.
+## 📄 License
 
----
+This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
-## 📜 License
+## ⚠️ Medical Disclaimer
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 MedCare AI Development Team - Pathway Hackathon October 2025
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-## 🙏 Acknowledgements
-
-### 🏛️ **Data Sources & APIs**
-- **[National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/)**: PubMed database and E-Utilities API
-- **[DrugBank](https://go.drugbank.com/)**: Comprehensive drug and drug interaction database
-- **[OpenAI](https://openai.com/)**: Advanced language models for clinical AI applications
-
-### 🛠️ **Technology Partners**
-- **[Pathway Team](https://pathway.com/)**: High-performance RAG framework and vector database technology
-- **[Streamlit Team](https://streamlit.io/)**: Interactive web application framework for rapid prototyping
-- **[Hugging Face](https://huggingface.co/)**: Transformers library and pre-trained models ecosystem
-
-### 👨‍⚕️ **Clinical Advisory**
-- Healthcare professionals who provided domain expertise and validation
-- Medical informatics researchers contributing to system design
-- Clinical workflow specialists ensuring real-world applicability
-
-### 🌟 **Special Thanks**
-- Open-source community contributors and maintainers
-- Healthcare institutions supporting AI research and development
-- Regulatory bodies providing guidance on AI in healthcare applications
-
----
-
-## ⚠️ Important Medical Disclaimer
-
-> **🩺 For Healthcare Professionals Only**: This system is designed as a clinical decision support tool for qualified healthcare professionals. It is not intended to replace clinical judgment, medical training, or professional medical advice.
+> **🩺 For Healthcare Professionals Only**
 > 
-> **🔒 Not for Direct Patient Care**: This software should not be used as the sole basis for medical decisions. Always validate recommendations with current clinical guidelines and professional medical judgment.
->
-> **📋 Regulatory Notice**: This system has not been evaluated by the FDA or other medical device regulatory agencies. Use in compliance with local healthcare regulations and institutional policies.
+> This system is designed as a clinical decision support tool for qualified healthcare professionals. It should not replace clinical judgment or serve as the sole basis for medical decisions. Always validate recommendations with current clinical guidelines.
+
+## 🙏 Acknowledgments
+
+- **[Pathway Team](https://pathway.com/)** - RAG framework and vector database
+- **[NCBI/PubMed](https://www.ncbi.nlm.nih.gov/)** - Medical literature database
+- **[OpenAI](https://openai.com/)** - Language model technology
+- **Healthcare professionals** - Domain expertise and validation
 
 ---
 
 <div align="center">
 
-### 🌟 **Star this repository if it helped you!**
+**🌟 Star this repository if it helped you! 🌟**
 
-**Made with ❤️ by the MedCare AI Team for Pathway Hackathon October 2025**
+Made with ❤️ for **Pathway Hackathon October 2025**
 
-[🏠 Homepage](https://github.com/yourusername/medcare-ai-cdss) • [📚 Documentation](https://medcare-ai-docs.com) • [🐛 Report Bug](https://github.com/yourusername/medcare-ai-cdss/issues) • [💡 Request Feature](https://github.com/yourusername/medcare-ai-cdss/issues) • [🚀 Pathway Hackathon](https://pathway.com/hackathon)
+[🏠 Home](https://github.com/Sukesh-Periyasamy/pathway_rag) • 
+[📚 Docs](docs/) • 
+[🐛 Issues](https://github.com/Sukesh-Periyasamy/pathway_rag/issues) • 
+[💡 Features](https://github.com/Sukesh-Periyasamy/pathway_rag/issues)
 
-</div>#   p a t h w a y _ r a g 
- 
- 
+</div>
